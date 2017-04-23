@@ -1,12 +1,15 @@
 {
   "name": "learn-typescript-tutorial",
   "version": "1.0.0",
-  "description": "",
+  "description": "- [https://www.typescriptlang.org/docs/tutorial.html](https://www.typescriptlang.org/docs/tutorial.html)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^2.2.2"
+  }
 }
