@@ -1,0 +1,4 @@
+brew 'docker'
+brew 'docker-compose'
+brew 'docker-completion'
+brew 'docker-compose-completion'
