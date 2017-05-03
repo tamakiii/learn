@@ -1,5 +1,13 @@
 version: '3.0'
 services:
+  app:
+    build:
+      context: ./
+      dockerfile: app.docker
+    volumes:
+      - ./www:/var/www
+    links:
+      - mysql
   web:
     image: nginx:latest
     ports:
