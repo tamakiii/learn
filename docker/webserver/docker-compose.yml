@@ -21,3 +21,13 @@ services:
     image: php:5-fpm
     volumes:
       - ./code:/code
+  mysql:
+    image: mysql:latest
+    restart: always
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - "MYSQL_ROOT_PASSWORD=secret"
+      - "MYSQL_DATABASE=laraveltest"
+    ports:
+      - "3306:3306"
