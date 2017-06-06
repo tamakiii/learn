@@ -1,6 +1,17 @@
+// require hogan
 var hogan = require("hogan.js");
 
-var template = "Hello {{world}}!";
-var hello = hogan.compile(template);
+// compile template
+var template = hogan.compile("@{{name}}");
 
-console.log(hello);
+var team = ['dhg', 'fat', 'jimio', 'nickgreen', 'sayrer'];
+
+team.map(function (twitterer) {
+
+  // Render context to template
+  return template.render({name: twitterer });
+
+});
+
+// outputs "Follow: @dhg @fat @jimio @nickgreen @sayrer!"
+console.log('Follow: ' + team.join(' ') + '!');
