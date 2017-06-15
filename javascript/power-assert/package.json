@@ -9,6 +9,8 @@
   "author": "",
   "license": "",
   "devDependencies": {
+    "intelli-espower-loader": "^1.0.1",
+    "mocha": "^3.4.2",
     "power-assert": "^1.4.4"
   }
 }
