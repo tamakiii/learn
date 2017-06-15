@@ -1,4 +1,4 @@
 .PHONY: test
 
 test:
-	node test/*
+	find test -name '*.js' | xargs -I@ node @
