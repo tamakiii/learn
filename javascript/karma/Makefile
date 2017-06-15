@@ -3,4 +3,4 @@
 KARMA := $(shell npm bin)/karma
 
 start:
-	$(KARMA) start
+	@$(KARMA) start karma.conf.js --log-level debug --single-run
