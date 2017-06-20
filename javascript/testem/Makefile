@@ -1,3 +1,4 @@
+.PHONY: test launchers
 
 TESTEM := $(shell npm bin)/testem
 
