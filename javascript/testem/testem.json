@@ -1,8 +1,11 @@
 {
   "framework": "mocha",
-  "test_page": "test/testem.html",
+  "test_page": [
+    "test/page/testem.html"
+  ],
   "src_files": [
     "src/**/*.js",
-    "test/**/*.spec.js"
+    "test/**/*.spec.js",
+    "test/page/**/*.html"
   ]
 }
