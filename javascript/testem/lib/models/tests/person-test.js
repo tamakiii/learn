@@ -1,13 +1,13 @@
-mport Person from '../lib/person';
+import Person from '../person';
 
 var assert = require('assert'); // node module
 
-describe('Person properties', function() {  
+describe('Person properties', function() {
   let fullName = 'Phineas Fletcher';
   let person;
 
   beforeEach(function() {
-    person = new Person(fullName);       
+    person = new Person(fullName);
   });
 
   it('name is assigned properly', function() {
