@@ -11,7 +11,7 @@ launchers:
 	$(TESTEM) launchers
 
 mocha:
-	$(MOCHA) lib --recursive --compilers js:babel-register
+	$(MOCHA) src --recursive --compilers js:babel-register
 
 babel:
-	$(BABEL) lib --out-dir tmp
+	$(BABEL) src --out-dir tmp
