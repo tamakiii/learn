@@ -1,17 +1,31 @@
 package main
 
 import (
-  "fmt"
   "net/http"
+  "text/template"
 )
 
-type String string
+type Page struct {
+  Title string
+  Count int
+}
 
-func (s String) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-  fmt.Fprint(w, s)
+func viewHandler(w http.ResponseWriter, r*http.Request) {
+  page := Page{"Hello, World", 1}
+  template, error := template.New("new").Parse("{{.Title}} {{.Count}} count")
+
+  if error != nil {
+    panic(error)
+  }
+
+  error = template.Execute(w, page)
+
+  if error != nil {
+    panic(error)
+  }
 }
 
 func main() {
-  http.Handle("/", String("Hello World."))
-  http.ListenAndServe("localhost:8000", nil)
+  http.HandleFunc("/", viewHandler)
+  http.ListenAndServe(":8080", nil)
 }
