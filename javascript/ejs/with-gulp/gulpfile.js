@@ -16,3 +16,7 @@ gulp.task('ejs', function() {
       .pipe(gulp.dest('dist'))
   })
 })
+
+gulp.task('watch', function() {
+  gulp.watch(['template.ejs', 'data.json'], ['ejs'])
+})
