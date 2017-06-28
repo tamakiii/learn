@@ -11,7 +11,7 @@
   </header>
   <div class="main">
     <% data.photos.forEach(function(photo){ %>
-        <div><img src="<%= photo.src %>" alt="" /></div>
+        <div><img src="<%= photo.src %>" alt="<%= photo.alt %>" /></div>
     <% }) %>
   </div>
 </body>
