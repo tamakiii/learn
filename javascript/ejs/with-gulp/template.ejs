@@ -1,0 +1,18 @@
+<% var data = jsonData; %>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title><%= data.title %> | EJS DEMO PAGE</title>
+</head>
+<body>
+  <header class="header">
+    <h1><%= data.title %></h1>
+  </header>
+  <div class="main">
+    <% data.photos.forEach(function(photo){ %>
+        <div><img src="<%= photo.src %>" alt="" /></div>
+    <% }) %>
+  </div>
+</body>
+</html>
