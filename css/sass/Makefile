@@ -1,5 +1,5 @@
 
 install:
 	@gem install bundler
-	@bundle install
+	@bundle install --path vendor/bundle
 
