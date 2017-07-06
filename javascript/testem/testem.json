@@ -1,0 +1,9 @@
+{
+  "framework": "mocha",
+	"on_start": "make babel",
+	"on_exit": "rm -rf tmp",
+	"test_page": "test/index.mustache",
+  "src_files": [
+		"tmp/**/*-test.js"
+  ]
+}
