@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>sub.tmp.local</title>
+  </head>
+  <body>
+    <h1>sub.tmp.local</h1>
+    <div id="result"></div>
+    <button id="read">read</button>
+    <button id="write">write</button>
+    <button id="reset">reset</button>
+    <script>
+
+      function showResult() {
+        document.getElementById('result').innerHTML = document.cookie;
+      }
+
+      document.getElementById('read').onclick = function(e) {
+        showResult();
+      };
+
+      document.getElementById('write').onclick = function(e) {
+        document.cookie = 'hoge=fuga';
+      };
+
+      document.getElementById('reset').onclick = function(e) {
+        document.cookie = 'hoge=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      };
+
+      showResult();
+
+    </script>
+  </body>
+</html>
