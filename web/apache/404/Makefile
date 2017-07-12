@@ -3,5 +3,5 @@ install:
 	docker build -t apache .
 
 run:
-	docker run -dit --name apache-404 apache
+	docker run -dit -p 8080:80 --name apache-404 apache
 
