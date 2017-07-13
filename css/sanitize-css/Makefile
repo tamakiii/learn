@@ -1,3 +1,5 @@
+NODE := $(shell which node)
+BIN_DIR := $(shell realpath node_modules/.bin)
 
 install: setup
 	npm install
@@ -5,4 +7,7 @@ install: setup
 
 setup:
 	mkdir -p dist/vendor/sanitize.css
+
+server:
+	$(NODE) $(BIN_DIR)/http-server dist -p 8080
 
