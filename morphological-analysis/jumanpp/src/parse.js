@@ -41,10 +41,6 @@ var results = {
   'categories': [],
 };
 
-// function parse(string) {
-//   return string.split(':')[1].split(';');
-// }
-
 const util = new Util;
 
 rl.on('line', function(line) {
@@ -54,18 +50,6 @@ rl.on('line', function(line) {
   util.parse(line, 'カテゴリ').forEach(function(word) {
     results['categories'].push(word);
   });
-  // const parsed = line.split(' ');
-  // if (parsed[14] !== undefined) {
-  //   if (parsed[14].includes('ドメイン')) {
-  //     parse(parsed[14], 'ドメイン').forEach(function(word) {
-  //       results['domains'].push(word);
-  //     });
-  //   } else if (parsed[14].includes('カテゴリ')) {
-  //     parse(parsed[14], 'カテゴリ').forEach(function(word) {
-  //       results['categories'].push(word);
-  //     });
-  //   }
-  // }
 });
 
 rl.on('close', function(line) {
