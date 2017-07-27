@@ -10,10 +10,10 @@ update:
 	@type brew > /dev/null
 	@brew update
 	@brew bundle --file=$(DIR)/Brewfile
+	@npm install
 
 clean:
-	@type brew > /dev/null
-	@brew bundle cleanup --force --file=$(DIR)/Brewfile
+	@rm -rf node_modules
 
 check:
 	@type brew > /dev/null
