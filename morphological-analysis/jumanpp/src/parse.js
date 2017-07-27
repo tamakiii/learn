@@ -75,15 +75,4 @@ rl.on('close', function(line) {
 		'domains': util.sort(util.transform(unique.domains)),
 		'categories': util.sort(util.transform(unique.categories)),
 	});
-
-  // const transformed = util.transform(unique.domains);
-  // console.log(util.sort(transformed));
-
-// console.log(unique);
-  // console.log(util.sort(unique.domains));
-
-  // console.dir({
-  //   'domains': util.sort(unique.domains),
-  //   'categories': util.sort(unique.categories),
-  // });
 });
