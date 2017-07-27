@@ -14,6 +14,16 @@ Util.prototype.unique = function(list) {
   return results;
 };
 
+Util.prototype.transform = function(unique) {
+  var results = [];
+
+	for (let k in unique) {
+    results.push({'name': k, 'count': unique[k]});
+  }
+
+  return results;
+};
+
 Util.prototype.parse = function(line, name) {
   const parsed = line.split(' ');
   if (parsed[14] !== undefined) {
@@ -27,6 +37,12 @@ Util.prototype.parse = function(line, name) {
 Util.prototype.split = function(string) {
   return string.split(':')[1].split(';');
 }; 
+
+Util.prototype.sort = function(hash) {
+  return hash.sort(function(a, b) {
+		return b.count - a.count;
+	});
+}
 
 // ---
 
@@ -53,5 +69,21 @@ rl.on('line', function(line) {
 });
 
 rl.on('close', function(line) {
-  console.dir(util.unique(results));
+  const unique = util.unique(results);
+
+	console.dir({
+		'domains': util.sort(util.transform(unique.domains)),
+		'categories': util.sort(util.transform(unique.categories)),
+	});
+
+  // const transformed = util.transform(unique.domains);
+  // console.log(util.sort(transformed));
+
+// console.log(unique);
+  // console.log(util.sort(unique.domains));
+
+  // console.dir({
+  //   'domains': util.sort(unique.domains),
+  //   'categories': util.sort(unique.categories),
+  // });
 });
