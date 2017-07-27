@@ -17,7 +17,7 @@ Util.prototype.unique = function(list) {
 Util.prototype.transform = function(unique) {
   var results = [];
 
-	for (let k in unique) {
+  for (let k in unique) {
     results.push({'name': k, 'count': unique[k]});
   }
 
@@ -34,14 +34,24 @@ Util.prototype.parse = function(line, name) {
   return [];
 };
 
+Util.prototype.trim = function(string, mask) {
+  while (~mask.indexOf(string[0])) {
+    string = string.slice(1);
+  }
+  while (~mask.indexOf(string[string.length - 1])) {
+    string = string.slice(0, -1);
+  }
+  return string;
+};
+
 Util.prototype.split = function(string) {
   return string.split(':')[1].split(';');
 }; 
 
 Util.prototype.sort = function(hash) {
   return hash.sort(function(a, b) {
-		return b.count - a.count;
-	});
+    return b.count - a.count;
+  });
 }
 
 // ---
@@ -61,18 +71,28 @@ const util = new Util;
 
 rl.on('line', function(line) {
   util.parse(line, 'ドメイン').forEach(function(word) {
-    results['domains'].push(word);
+    results['domains'].push(util.trim(word, '"'));
   });
   util.parse(line, 'カテゴリ').forEach(function(word) {
-    results['categories'].push(word);
+    results['categories'].push(util.trim(word, '"'));
   });
 });
 
 rl.on('close', function(line) {
   const unique = util.unique(results);
+  const sorted = {
+    'domains': util.sort(util.transform(unique.domains)),
+    'categories': util.sort(util.transform(unique.categories)),
+  };
 
-	console.dir({
-		'domains': util.sort(util.transform(unique.domains)),
-		'categories': util.sort(util.transform(unique.categories)),
-	});
+  const merged = Object.assign(
+    util.sort(util.transform(unique.domains)),
+    util.sort(util.transform(unique.categories))
+  );
+
+  const selected = merged.slice(0, 10).map(function(row) {
+    return row.name;
+  });
+
+  console.log(selected.join(','));
 });
