@@ -85,12 +85,12 @@ rl.on('close', function(line) {
     'categories': util.sort(util.transform(unique.categories)),
   };
 
-  const merged = Object.assign(
+  const merged = [].concat(
     util.sort(util.transform(unique.domains)),
     util.sort(util.transform(unique.categories))
   );
 
-  const selected = merged.slice(0, 10).map(function(row) {
+  const selected = merged.slice(0, 20).map(function(row) {
     return row.name;
   });
 
