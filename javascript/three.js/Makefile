@@ -14,6 +14,9 @@ watch:
 build:
 	npm run build
 
+dev-server:
+	npm run dev-server
+
 setup:
 	mkdir -p public/vendor/three-js
 
