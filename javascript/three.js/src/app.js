@@ -1,3 +1,7 @@
+if (module.hot) {
+  module.hot.accept()
+}
+
 import './style.scss'
 import {groupBy} from 'lodash/collection'
 import people from './people'

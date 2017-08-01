@@ -1,4 +1,4 @@
-webpackJsonp([1],[
+webpackJsonp([0],[
 /* 0 */
 /***/ (function(module, exports) {
 
@@ -2367,6 +2367,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_collection__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_collection___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash_collection__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__people__ = __webpack_require__(74);
+if (false) {
+  module.hot.accept();
+}
+
 
 
 
@@ -2378,7 +2382,7 @@ root.innerHTML = '<pre>' + JSON.stringify(managerGroups, null, 2) + '</pre>';
 
 var routes = {
   dashboard: function dashboard() {
-    __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 219)).then(function (dashboard) {
+    __webpack_require__.e/* import() */(3).then(__webpack_require__.bind(null, 221)).then(function (dashboard) {
       dashboard.draw();
     }).catch(function (err) {
       console.log("Chunk loading failed");

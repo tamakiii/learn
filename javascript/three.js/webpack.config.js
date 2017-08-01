@@ -1,8 +1,9 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const extractCSS = new ExtractTextPlugin('[name].bundle.css')
-
 const webpack = require('webpack')
 const path = require('path')
+
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const extractCSS = new ExtractTextPlugin('[name].bundle.css')
+const nameModule = new webpack.NamedModulesPlugin()
 
 const extractCommons = new webpack.optimize.CommonsChunkPlugin({
   name: 'commons',
@@ -53,7 +54,8 @@ const config = {
   },
   plugins: [
 		extractCSS,
-    extractCommons
+    extractCommons,
+		nameModule
   ]
 }
 

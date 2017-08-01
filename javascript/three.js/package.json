@@ -7,6 +7,7 @@
     "watch": "webpack --watch",
     "build": "webpack -p",
     "dev-server": "webpack-dev-server --inline",
+    "dev-server-hot": "webpack-dev-server --inline --hot",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

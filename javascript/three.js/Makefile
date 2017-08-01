@@ -17,6 +17,9 @@ build:
 dev-server:
 	npm run dev-server
 
+dev-server-hot:
+	npm run dev-server-hot
+
 setup:
 	mkdir -p public/vendor/three-js
 
