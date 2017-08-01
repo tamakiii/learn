@@ -1,4 +1,6 @@
 
+NPM := $(shell npm bin)
+
 install: update
 	npm install
 
@@ -8,4 +10,7 @@ update: setup
 
 setup:
 	mkdir -p public/vendor/three-js
+
+server:
+	$(NPM)/http-server -p 8080 public
 
