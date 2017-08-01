@@ -2428,25 +2428,39 @@ module.exports = copyArray;
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_collection__ = __webpack_require__(75);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_collection___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash_collection__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__people__ = __webpack_require__(216);
 
 
-var people = [{
-  manager: 'Jen',
-  name: 'Bob'
-}, {
-  manager: 'Jen',
-  name: 'Sue'
-}, {
-  manager: 'Bob',
-  name: 'Shirley'
-}, {
-  manager: 'Bob',
-  name: 'Terrence'
-}];
-var managerGroups = Object(__WEBPACK_IMPORTED_MODULE_0_lodash_collection__["groupBy"])(people, 'manager');
+
+
+var managerGroups = Object(__WEBPACK_IMPORTED_MODULE_0_lodash_collection__["groupBy"])(__WEBPACK_IMPORTED_MODULE_1__people__["a" /* default */], 'manager');
 
 var root = document.querySelector('#root');
 root.innerHTML = '<pre>' + JSON.stringify(managerGroups, null, 2) + '</pre>';
+
+// ---
+
+// import {groupBy} from 'lodash/collection'
+// 
+// const people = [{
+//   manager: 'Jen',
+//   name: 'Bob'
+// }, {
+//   manager: 'Jen',
+//   name: 'Sue'
+// }, {
+//   manager: 'Bob',
+//   name: 'Shirley'
+// }, {
+//   manager: 'Bob',
+//   name: 'Terrence'
+// }]
+// const managerGroups = groupBy(people, 'manager')
+// 
+// const root = document.querySelector('#root')
+// root.innerHTML = `<pre>${JSON.stringify(managerGroups, null, 2)}</pre>`
+
+// ---
 
 // const root = document.querySelector('#root')
 // root.innerHTML = `<p>Hello webpack.</p>`
@@ -7258,6 +7272,27 @@ var sortBy = baseRest(function(collection, iteratees) {
 
 module.exports = sortBy;
 
+
+/***/ }),
+/* 216 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var people = [{
+  manager: 'Jen',
+  name: 'Bob'
+}, {
+  manager: 'Jen',
+  name: 'Sue'
+}, {
+  manager: 'Bob',
+  name: 'Shirley'
+}, {
+  manager: 'Bob',
+  name: 'Terrence'
+}];
+
+/* harmony default export */ __webpack_exports__["a"] = (people);
 
 /***/ })
 /******/ ]);
