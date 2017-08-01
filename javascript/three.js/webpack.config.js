@@ -36,7 +36,8 @@ const config = {
     },
 		{
 			test: /\.scss$/,
-			loader: extractCSS.extract(['css-loader','sass-loader'])
+			loader: ['style-loader', 'css-loader','sass-loader']
+			// loader: extractCSS.extract(['css-loader','sass-loader'])
 			// use: [
 			// 	'style-loader',
 			// 	'css-loader',
