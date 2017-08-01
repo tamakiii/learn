@@ -18,11 +18,12 @@ const config = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-		publicPath: '/dist/',
+    publicPath: '/dist/',
     filename: '[name].bundle.js'
   },
   module: {
-    rules: [{
+    rules: [
+    {
       test: /\.js$/,
       include: path.resolve(__dirname, 'src'),
       use: [{
@@ -34,29 +35,29 @@ const config = {
         }
       }]
     },
-		{
-			test: /\.scss$/,
-			loader: ['style-loader', 'css-loader','sass-loader']
-			// loader: extractCSS.extract(['css-loader','sass-loader'])
-			// use: [
-			// 	'style-loader',
-			// 	'css-loader',
-			// 	'sass-loader'
-			// ]
-		},
-		{
+    {
+      test: /\.scss$/,
+      loader: ['style-loader', 'css-loader','sass-loader']
+        // loader: extractCSS.extract(['css-loader','sass-loader'])
+        // use: [
+        //   'style-loader',
+        //   'css-loader',
+        //   'sass-loader'
+        // ]
+    },
+    {
       test: /\.(png|jpg)$/,
       use: [{
         loader: 'url-loader',
         options: { limit: 10000 } // Convert images < 10k to base64 strings
       }]
     }
-		]
+    ]
   },
   plugins: [
-		extractCSS,
+    extractCSS,
     extractCommons,
-		nameModule
+    nameModule
   ]
 }
 
