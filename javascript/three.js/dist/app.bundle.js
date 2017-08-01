@@ -1,4 +1,4 @@
-webpackJsonp([0],[
+webpackJsonp([1],[
 /* 0 */
 /***/ (function(module, exports) {
 
@@ -2375,6 +2375,29 @@ var managerGroups = Object(__WEBPACK_IMPORTED_MODULE_1_lodash_collection__["grou
 
 var root = document.querySelector('#root');
 root.innerHTML = '<pre>' + JSON.stringify(managerGroups, null, 2) + '</pre>';
+
+var routes = {
+  dashboard: function dashboard() {
+    __webpack_require__.e/* import() */(0).then(__webpack_require__.bind(null, 219)).then(function (dashboard) {
+      dashboard.draw();
+    }).catch(function (err) {
+      console.log("Chunk loading failed");
+    });
+  }
+
+  // demo async loading with a timeout
+};setTimeout(routes.dashboard, 1000);
+
+// ---
+
+// import './style.scss'
+// import {groupBy} from 'lodash/collection'
+// import people from './people'
+//
+// const managerGroups = groupBy(people, 'manager')
+//
+// const root = document.querySelector('#root')
+// root.innerHTML = `<pre>${JSON.stringify(managerGroups, null, 2)}</pre>`
 
 // ---
 
