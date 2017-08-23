@@ -1,0 +1,11 @@
+{
+  "framework": "mocha",
+  "test_page": [
+    "test/page/localstorage.html"
+  ],
+  "src_files": [
+    "src/**/*.js",
+    "test/**/*.spec.js",
+    "test/page/**/*.html"
+  ]
+}

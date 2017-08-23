@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Test'em</title>
+    <link rel="stylesheet" href="/node_modules/mocha/mocha.css">
+    <script src="/node_modules/mocha/mocha.js"></script>
+    <script src="/node_modules/power-assert/build/power-assert.js"></script>
+    <script src="/testem.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script src="/src/localstorage.js"></script>
+		<script src="/test/localstorage.spec.js"></script>
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script>
+      mocha.run()
+    </script>
+  </body>
+</html>
