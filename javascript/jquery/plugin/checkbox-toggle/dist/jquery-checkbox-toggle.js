@@ -2,6 +2,7 @@
 (function( $ ) {
   $.fn.checkboxToggle = function(options) {
     var options = options ? options : {};
+    var defaultValues = ['off', 'on'];
 
     var init = function(checkbox) {
       update(checkbox);
@@ -11,8 +12,22 @@
       update($(event.target));
     };
 
+    var getValuesFromCheckbox = function(checkbox) {
+      var data = checkbox.attr('data-checkbox-toggle');
+
+      if (data) {
+        var values = data.split(',');
+
+        if (values instanceof Array && values.length === 2) {
+            return values;
+        }
+      }
+
+      return ['off', 'on'];
+    };
+
     var update = function(checkbox) {
-      var values = checkbox.attr('data-checkbox-toggle').split(',');
+      var values = getValuesFromCheckbox(checkbox);
 
       if (checkbox.prop('checked')) {
         checkbox.val(values[1]);
