@@ -1,46 +1,65 @@
 
 (function( $ ) {
+  var Module = function(jQuery, options) {
+    this.jQuery = jQuery;
+    this.options = options || {};
+    this.values = ['off', 'on'];
+    this.name = 'checkbox-toggle';
+    this.separator = ',';
+  };
+
+  Module.prototype.initialize = function(element) {
+    if (this.shouldInitialize(element)) {
+      this.update(element);
+    }
+  };
+
+  Module.prototype.shouldInitialize = function() {
+    return typeof this.options.init == 'undefined' || this.options.init != false;
+  };
+
+  Module.prototype.bind = function(element) {
+    var self = this;
+    element.on('change', function() {
+      self.onChange(event);
+    });
+  };
+
+  Module.prototype.onChange = function(event) {
+    this.update(this.jQuery(event.target));
+  };
+
+  Module.prototype.getValues = function(elements) {
+    var data = elements.data(this.name);
+
+    if (data) {
+      var values = data.split(this.separator);
+
+      if (values instanceof Array && values.length === 2) {
+        return values;
+      }
+    }
+
+    return this.values;
+  };
+
+  Module.prototype.update = function(element) {
+    var values = this.getValues(element);
+
+    if (element.prop('checked')) {
+      element.val(values[1]);
+    } else {
+      element.val(values[0]);
+    }
+  };
+
   $.fn.checkboxToggle = function(options) {
-    var options = options ? options : {};
-    var defaultValues = ['off', 'on'];
-
-    var init = function(checkbox) {
-      update(checkbox);
-    };
-
-    var onChange = function(event) {
-      update($(event.target));
-    };
-
-    var getValuesFromCheckbox = function(checkbox) {
-      var data = checkbox.attr('data-checkbox-toggle');
-
-      if (data) {
-        var values = data.split(',');
-
-        if (values instanceof Array && values.length === 2) {
-            return values;
-        }
-      }
-
-      return ['off', 'on'];
-    };
-
-    var update = function(checkbox) {
-      var values = getValuesFromCheckbox(checkbox);
-
-      if (checkbox.prop('checked')) {
-        checkbox.val(values[1]);
-      } else {
-        checkbox.val(values[0]);
-      }
-    };
+    var module = new Module($, options);
 
     return this.each(function() {
-      if (typeof options.init == 'undefined' || options.init != false) {
-        init($(this));
-      }
-      $(this).on('change', onChange);
+      var element = $(this);
+      module.initialize(element);
+      module.bind(element);
     });
   };
 
