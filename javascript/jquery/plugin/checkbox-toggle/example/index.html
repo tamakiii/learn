@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="/dist/jquery-checkbox-toggle.js"></script>
+    <title>Toggle checkbox value jQuery plugin</title>
+  </head>
+  <body>
+    <input type="checkbox" value="0" name="sam" id="checkbox-sam" class="checkbox-toggle" data-checkbox-toggle="0,1"><label for="checkbox-sam">Sam</label>
+    <input type="checkbox" value="0" name="joe" id="checkbox-joe" class="checkbox-toggle" data-checkbox-toggle="0,1" checked><label for="checkbox-joe">Joe</label>
+    <hr>
+    <input type="checkbox" name="light" id="checkbox-joe" class="checkbox-toggle" data-checkbox-toggle="off,on" checked><label for="checkbox-joe">Light</label>
+
+    <script type="text/javascript">
+      $(function() {
+        // $('input[type="checkbox"].checkbox-toggle').checkboxToggle({'init': true});
+        $('input[type="checkbox"].checkbox-toggle').checkboxToggle();
+      });
+    </script>
+  </body>
+</html>
