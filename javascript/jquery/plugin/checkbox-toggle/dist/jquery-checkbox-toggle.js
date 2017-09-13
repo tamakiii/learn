@@ -1,11 +1,15 @@
 
 (function( $ ) {
   var Module = function(jQuery, options) {
+    var defaults = {
+      init: true,
+      values: ['off', 'on'],
+      name: 'checkbox-toggle',
+      separator: ',',
+    };
+
     this.jQuery = jQuery;
-    this.options = options || {};
-    this.values = ['off', 'on'];
-    this.name = 'checkbox-toggle';
-    this.separator = ',';
+    this.options = this.jQuery.extend(true, defaults, options || {});
   };
 
   Module.prototype.initialize = function(element) {
@@ -30,17 +34,17 @@
   };
 
   Module.prototype.getValues = function(elements) {
-    var data = elements.data(this.name);
+    var data = elements.data(this.options.name);
 
     if (data) {
-      var values = data.split(this.separator);
+      var values = data.split(this.options.separator);
 
       if (values instanceof Array && values.length === 2) {
         return values;
       }
     }
 
-    return this.values;
+    return this.options.values;
   };
 
   Module.prototype.update = function(element) {
