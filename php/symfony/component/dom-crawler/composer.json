@@ -7,6 +7,7 @@
         }
     ],
     "require": {
-        "symfony/dom-crawler": "^3.3"
+        "symfony/dom-crawler": "^3.3",
+        "symfony/cache": "^3.3"
     }
 }
