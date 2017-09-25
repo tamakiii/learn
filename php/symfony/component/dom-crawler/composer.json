@@ -1,0 +1,10 @@
+{
+    "name": "tamakiii/try-php-symfony-component-dom-crawler",
+    "authors": [
+        {
+            "name": "tamakiii",
+            "email": "tamaki.htm@gmail.com"
+        }
+    ],
+    "require": {}
+}
