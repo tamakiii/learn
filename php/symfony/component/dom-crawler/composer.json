@@ -6,5 +6,7 @@
             "email": "tamaki.htm@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "symfony/dom-crawler": "^3.3"
+    }
 }
