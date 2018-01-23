@@ -6,4 +6,6 @@ RUN go get -u github.com/labstack/echo/...
 
 # go get github.com/stretchr/testify
 
-ENTRYPOINT go run /volumes/echo/src/server.go
+WORKDIR /volumes/echo
+
+ENTRYPOINT go run src/server.go

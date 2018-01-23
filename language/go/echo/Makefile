@@ -6,7 +6,10 @@ build:
 	docker build -t ${CONTAINER} .
 
 run: stop
-	docker run -itd -v ${ROOT_DIR}:/volumes/echo -p 1323:1323 ${CONTAINER}
+	docker run -it -v ${ROOT_DIR}:/volumes/echo -p 1323:1323 ${CONTAINER}
+
+login:
+	docker exec -it ${CONTAINER_ID} ash
 
 stop:
 	if [ ! "${CONTAINER_ID}" = "" ]; then docker stop -t 1 ${CONTAINER_ID}; fi
