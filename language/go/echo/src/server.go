@@ -3,6 +3,7 @@ package main
 import (
   "net/http"
   "github.com/labstack/echo"
+  "github.com/labstack/echo/middleware"
   "os"
   "io"
 )
@@ -58,9 +59,25 @@ func save(c echo.Context) error {
 
 func main() {
   e := echo.New()
+  e.Use(middleware.Logger())
+  e.Use(middleware.Recover())
+
+  g := e.Group("/admin")
+  g.Use(middleware.BasicAuth(func(username, password string, c echo.Context) (bool, error) {
+    if username == "joe" && password == "secret" {
+      return true, nil
+    }
+    return false, nil
+  }))
+
+  e.GET("/admin", func(c echo.Context) error {
+    return c.String(http.StatusOK, "Hello, admin")
+  })
+
   e.GET("/", func(c echo.Context) error {
     return c.String(http.StatusOK, "Hello, World!")
   })
+
   e.GET("/users/:id", getUser)
   e.POST("/users", postUser)
   e.GET("/show", show)
