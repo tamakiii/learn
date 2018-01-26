@@ -1,0 +1,13 @@
+version: '3.4'
+services:
+  go:
+    image: try-language-go-mysql/go
+    build: docker/go
+
+  mysql:
+    image: try-language-go-mysql/mysql
+    build: docker/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
