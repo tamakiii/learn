@@ -3,6 +3,10 @@ services:
   go:
     image: try-language-go-mysql/go
     build: docker/go
+    volumes:
+      - .:/project
+    networks:
+      - overlay
 
   mysql:
     image: try-language-go-mysql/mysql
@@ -10,4 +14,8 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    networks:
+      - overlay
 
+networks:
+  overlay:
