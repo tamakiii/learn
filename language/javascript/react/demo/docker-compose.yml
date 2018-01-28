@@ -7,6 +7,5 @@ services:
       - ${HOST_PORT_NODE}
     volumes:
       - .:/volumes/demo
-    command: npm start
     working_dir: /volumes/demo
 
