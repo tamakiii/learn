@@ -1,6 +1,6 @@
 version: '3.2'
 services:
-  npm:
+  node:
     image: react-demo/node
     build: docker/node
     expose:
