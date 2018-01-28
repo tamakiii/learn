@@ -1,0 +1,12 @@
+version: '3.2'
+services:
+  npm:
+    image: react-demo/node
+    build: docker/node
+    expose:
+      - ${HOST_PORT_NODE}
+    volumes:
+      - .:/volumes/demo
+    command: npm start
+    working_dir: /volumes/demo
+
