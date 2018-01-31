@@ -2,38 +2,46 @@
 #include <GLFW/glfw3.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <iostream>
+#include <exception>
+#include <stdexcept>
 
 static void error_callback(int error, const char* description)
 {
   fputs(description, stderr);
 }
 
-static void key_callback(GLFWwindow* window, int key, int scancode, int action,
-                         int mods)
+static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
   if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
     glfwSetWindowShouldClose(window, GL_TRUE);
 }
 
-int main(void)
+GLFWwindow* createWindow(int width, int height, const char *title, GLFWmonitor *monitor, GLFWwindow *share)
 {
   GLFWwindow* window;
-  glfwSetErrorCallback(error_callback);
-  if (!glfwInit())
-    exit(EXIT_FAILURE);
-  window = glfwCreateWindow(640, 480, "Simple example", NULL, NULL);
-  if (!window)
-  {
-    glfwTerminate();
-    exit(EXIT_FAILURE);
+
+  if (!glfwInit()) {
+    throw std::runtime_error("Failed to glfwInit()");
   }
+
+  window = glfwCreateWindow(640, 480, "Simple example", NULL, NULL);
+
+  if (!window) {
+    glfwTerminate();
+    throw std::runtime_error("Failed to glfwCreateWindow()");
+  }
+
   glfwMakeContextCurrent(window);
-  glfwSwapInterval(1);
-  glfwSetKeyCallback(window, key_callback);
-  while (!glfwWindowShouldClose(window))
-  {
+
+  return window;
+}
+
+void display(GLFWwindow* window)
+{
     float ratio;
     int width, height;
+
     glfwGetFramebufferSize(window, &width, &height);
     ratio = width / (float)height;
     glViewport(0, 0, width, height);
@@ -54,7 +62,29 @@ int main(void)
     glEnd();
     glfwSwapBuffers(window);
     glfwPollEvents();
+}
+
+int main(void)
+{
+  GLFWwindow* window;
+
+  try {
+    window = createWindow(640, 480, "Simple example", NULL, NULL);
+  } catch (std::exception& e) {
+    std::cout << e.what() << std::endl;
+    exit(EXIT_FAILURE);
   }
+
+  glfwSetErrorCallback(error_callback);
+  
+  glfwSwapInterval(1);
+  glfwSetKeyCallback(window, key_callback);
+
+  while (!glfwWindowShouldClose(window))
+  {
+    display(window);
+  }
+
   glfwDestroyWindow(window);
   glfwTerminate();
   exit(EXIT_SUCCESS);
