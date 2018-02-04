@@ -4,7 +4,7 @@
 
 using namespace glm;
 
-ivec2 windowSize(800, 600);
+ivec2 windowSize = {800, 600};
 
 bool keys[256] ;
 
