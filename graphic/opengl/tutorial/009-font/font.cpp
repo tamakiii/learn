@@ -54,16 +54,16 @@ namespace font {
 
     glColor3ub(color[0], color[1], color[2]);
 
-    glPushMatrix();
-    {
+    // glPushMatrix();
+    // {
       glTranslatef(position.x, position.y + size, 0);
       float scale = size / FONT_DEFAULT_SIZE;
       glScalef(scale, -scale, scale);
       for (char *p = str; *p != '\0'; ++p) {
         glutStrokeCharacter(GLUT_STROKE_ROMAN, *p);
       }
-    }
-    glPopMatrix();
+    // }
+    // glPopMatrix();
   }
 
   void setPosition(float x, float y) {
