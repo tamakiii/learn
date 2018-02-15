@@ -20,3 +20,8 @@ bin/mp3splt -h
 bin/mp3splt -S 60 test.mp3
 ~~~
 
+sox
+~~~sh
+bin/sox --help
+bin/sox test.mp3 --rate 16k --bits 16 --channels 1 output.flac
+~~~

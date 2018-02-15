@@ -15,6 +15,12 @@ services:
     volumes:
       - .:/work
 
+  sox:
+    build: docker/sox
+    working_dir: /work
+    volumes:
+      - .:/work
+
 volumes:
   config:
 
