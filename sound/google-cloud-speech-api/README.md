@@ -6,9 +6,14 @@
 - Make
 
 ## How to use
+gcloud
+~~~sh
+bin/gcloud --help
+~~~
+
 mp3splt
 ~~~sh
-make -C docker/mp3splt help
-make -C docker/mp3splt split-eq COUNT=60 TARGET=test.mp3
+bin/mp3splt -h
+bin/mp3splt -S 60 test.mp3
 ~~~
 
