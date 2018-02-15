@@ -6,6 +6,8 @@ services:
     volumes:
       - .:/work
       - config:/root/.config
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: /root/.config/gcloud/key.json
   
   mp3splt:
     build: docker/mp3splt

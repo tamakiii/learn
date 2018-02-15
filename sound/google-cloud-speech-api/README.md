@@ -9,6 +9,9 @@
 gcloud
 ~~~sh
 bin/gcloud --help
+bin/gcloud auth login
+bin/gcloud config set project PROJECT_ID
+bin/gcloud services list --available
 ~~~
 
 mp3splt
