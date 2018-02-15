@@ -1,7 +1,12 @@
 version: '3.3'
 services:
+  google-cloud-sdk:
+    image: google/cloud-sdk:latest
+    working_dir: /work
+    volumes:
+      - .:/work
+  
   mp3splt:
-    image: gc-speech/mp3splt
     build: docker/mp3splt
     working_dir: /work
     volumes:
