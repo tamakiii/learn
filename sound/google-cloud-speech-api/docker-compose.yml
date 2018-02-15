@@ -5,10 +5,14 @@ services:
     working_dir: /work
     volumes:
       - .:/work
+      - config:/root/.config
   
   mp3splt:
     build: docker/mp3splt
     working_dir: /work
     volumes:
       - .:/work
+
+volumes:
+  config:
 
