@@ -2,15 +2,13 @@
 
 ## Dependencies
 - Docker
+- Docker Compose
 - Make
 
 ## How to use
-Docker
-~~~sh
-make build run
-~~~
-
 mp3splt
 ~~~sh
-mp3splt -S 60 hoge.mp3
+make -C docker/mp3splt help
+make -C docker/mp3splt split-eq COUNT=60 TARGET=test.mp3
 ~~~
+

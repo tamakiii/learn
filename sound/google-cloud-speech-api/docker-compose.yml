@@ -1,0 +1,9 @@
+version: '3.3'
+services:
+  mp3splt:
+    image: gc-speech/mp3splt
+    build: docker/mp3splt
+    working_dir: /work
+    volumes:
+      - .:/work
+
