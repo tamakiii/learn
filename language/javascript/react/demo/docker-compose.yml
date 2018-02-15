@@ -1,0 +1,15 @@
+version: '3.2'
+services:
+  node:
+    image: react-demo/node
+    build: docker/node
+    environment:
+      NODE_ENV: development
+      PORT: ${PORT_CONTAINER_NODE}
+    ports:
+      - ${PORT_HOST_NODE}:${PORT_CONTAINER_NODE}
+    volumes:
+      - .:/volumes/demo
+    working_dir: /volumes/demo
+    command: npm start
+
