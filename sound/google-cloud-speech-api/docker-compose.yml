@@ -21,6 +21,12 @@ services:
     volumes:
       - .:/work
 
+  mecab:
+    build: docker/mecab
+    working_dir: /work
+    volumes:
+      - .:/work
+
 volumes:
   config:
 
