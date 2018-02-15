@@ -25,3 +25,8 @@ sox
 bin/sox --help
 bin/sox test.mp3 --rate 16k --bits 16 --channels 1 output.flac
 ~~~
+
+mecab
+~~~sh
+cat my.txt | bin/mecab -d /usr/local/lib/mecab/dic/mecab-ipadic-neologd > my.mecab.txt
+~~~
