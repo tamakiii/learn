@@ -1,0 +1,32 @@
+version: '3.3'
+services:
+  google-cloud-sdk:
+    image: google/cloud-sdk:latest
+    working_dir: /work
+    volumes:
+      - .:/work
+      - config:/root/.config
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: /root/.config/gcloud/key.json
+  
+  mp3splt:
+    build: docker/mp3splt
+    working_dir: /work
+    volumes:
+      - .:/work
+
+  sox:
+    build: docker/sox
+    working_dir: /work
+    volumes:
+      - .:/work
+
+  mecab:
+    build: docker/mecab
+    working_dir: /work
+    volumes:
+      - .:/work
+
+volumes:
+  config:
+

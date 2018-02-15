@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+container="sox"
+base="$(basename "$0")"
+root=$(realpath $(cd $(dirname $0)/.. && pwd))
+
+docker-compose --project-directory $root run $container $base $@
