@@ -16,5 +16,17 @@ services:
     volumes:
       - .:/web/symfony
 
+  db:
+    image: mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: 9e2e4c4841810d4e1c74f8339b7398f0
+      MYSQL_DATABASE: symfony
+      MYSQL_USER: symfony
+      MYSQL_PASSWORD: ffcb137f9bf3bd5ec5beb5672126f31b
+    volumes:
+        - ./docker/mysql/var/lib/mysql:/var/lib/mysql
+
 volumes:
   symfony:
