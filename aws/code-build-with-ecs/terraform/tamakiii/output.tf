@@ -26,5 +26,9 @@ Route Table:
       - ${aws_route_table_association.sample_app_public_a.id}
       - ${aws_route_table_association.sample_app_public_c.id}
 
+Security Group:
+  ${aws_default_security_group.sample_app.tags.Name}:
+    id: ${aws_default_security_group.sample_app.id}
+
 EOT
 }
