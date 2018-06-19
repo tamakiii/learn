@@ -1,0 +1,11 @@
+version: '3.6'
+services:
+  terraform:
+    build:
+      context: .
+      dockerfile: docker/terraform/Dockerfile
+    env_file: .env
+    working_dir: /app/terraform
+    volumes:
+      - .:/app
+      - ~/.aws:/root/.aws
