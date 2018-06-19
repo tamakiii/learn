@@ -15,5 +15,16 @@ Subnet:
     id: ${aws_subnet.sample_app_public_c.id}:
     cidr_block: ${aws_subnet.sample_app_public_a.cidr_block}
 
+Internet Gateway:
+  ${aws_internet_gateway.sample_app_public.tags.Name}
+    id: ${aws_internet_gateway.sample_app_public.id}
+
+Route Table:
+  ${aws_route_table.sample_app_public.tags.Name}:
+    id: ${aws_route_table.sample_app_public.id}
+    association:
+      - ${aws_route_table_association.sample_app_public_a.id}
+      - ${aws_route_table_association.sample_app_public_c.id}
+
 EOT
 }
