@@ -9,15 +9,8 @@ router.addRoute('/pulls', () => {
 router.addRoute('/pulls/{id}', (id) => {
   console.log('Pulls: ' + id);
 });
-// router.addRoute('/:group:/:repository:', (g, r) => {
-//   // console.log(this); // undefined
-//   // console.log(f.arguments);
-//   // console.log(function.arguments); // SyntaxError: Unexpected token .
-//   // console.log(arguments); // ReferenceError: arguments is not defined
-// });
-
-router.addRoute('/:group:/:repository:', function() {
-  console.log(arguments);
+router.addRoute('/:group:/:repository:', (...args) => {
+  console.log(args);
 });
 
 router.parse('/');
